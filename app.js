@@ -10,9 +10,16 @@ var BudgetController=(function(){
 
 //Global Controller
 var GlobalController=(function(uiCTRL,budgetCTRL){
-    document.querySelector('.add__btn').addEventListener('click',function(){
-        //1.Get the filed input data
-    })
+    
+    var addingItem= function(){
+         //1.Get the filed input data
+    }
+    document.querySelector('.add__btn').addEventListener('click',addingItem);
+    document.addEventListener('keypress',function(event){
+        if(event === 13 || event.which === 13){ //For Older browsers for event.which
+            addingItem();
+        }
+    });
 })(UIController,BudgetController);
 
 
