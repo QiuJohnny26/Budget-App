@@ -1,6 +1,12 @@
 // UI Controller
 var UIController=(function(){
     
+    return {
+        getinput:function(){
+            var type = document.querySelector('.add__type').value; // will be either inc or exp selected
+        
+        }
+    }
 })();
 
 //Budget Controller
