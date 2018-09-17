@@ -37,6 +37,26 @@ var BudgetController=(function(){
         
     };
     
+
+    
+    var data = {
+        allItems:{
+            exp: [],
+            inc: []
+            
+        },
+        totals:{
+            exp: 0,
+            inc:0
+        }
+    
+    }
+        
+
+      
+        
+    }
+    
 })();
 
 //Global Controller
