@@ -54,7 +54,15 @@ var BudgetController=(function(){
         return{
             addItem: function(type, des,val){
             var newItem;
-            newItem= new Expense(id,des,val);
+            var ID = data.allItems[type][data.allItems[type].length-1]
+            if( type == 'exp'){
+            newItem = new Expense(ID,des,val);
+            }
+            else if ( type == 'inc'){
+            newItem = new Income(ID,des,val)
+            }
+                data.allItems[type].push(newItem); //Adds Element to the end of the array
+                return newItem;
             }
         };
 
