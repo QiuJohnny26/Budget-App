@@ -16,6 +16,20 @@ var UIController=(function(){
       },
          getDOMstrings:function(){
             return DOMstrings;
+        },
+        
+        addListItems: function(obj, type){
+            var html,newHTML;
+            //create html string for placeholder
+            if(type === 'income'){
+             html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+            }
+            else if(type === 'expense')
+            html ='<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%vale%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+            // replace the placeholder with some actual data
+            //newHTML =html.replace('id',obj.id)
+            // Insert the HTML INTO THE DOM
+            
         }
     };
        
@@ -78,7 +92,7 @@ var BudgetController=(function(){
                 
                 console.log(data);
             
-            }
+                }
         };
 
       
