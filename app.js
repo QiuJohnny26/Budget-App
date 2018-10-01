@@ -35,7 +35,18 @@ var UIController=(function(){
             newHTML = newHTML.replace('%description%',obj.description);
             newHTML = newHTML.replace('%value%',obj.value);
             // Insert the HTML INTO THE DOM
-            document.querySelector(element).insertAdjacentHTML('beforeend',newHTML);
+            document.querySelector(element).insertAdjacentHTML('afterend',newHTML);
+            
+        },
+        clearDOM: function() {
+            
+            var fields,fieldsArr;
+            
+            fields=document.querySelectorAll(DOMstrings.inputDescription+', '+DOMstrings.inputValue);
+            fieldsArr=Array.prototype.slice.call(fields);
+            fieldsArr.forEach(function(cur,index,array){
+                cur.value="";
+            });
             
         }
     };
@@ -127,12 +138,15 @@ var GlobalController=(function(uiCTRL,budgetCTRL){
          //2. Budget Controller
        newItem = budgetCTRL.addItem(input.type,input.description,input.value);
        uiCTRL.addListItems(newItem,input.type);
+          // clear fields
+       uiCTRL.clearDOM();
     };
 
+    
    
  return {
      init:function(){
-         console.log("starting");
+        console.log("starting");
         setupEventListeners();
      }
  };
