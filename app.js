@@ -13,7 +13,7 @@ var UIController=(function(){
             return{
              type : document.querySelector(DOMstrings.inputType).value, // will be either inc or exp selected
              description : document.querySelector(DOMstrings.inputDescription).value,
-             value : document.querySelector(DOMstrings.inputValue).value
+             value :parseFloat(document.querySelector(DOMstrings.inputValue).value)
               };
       },
          getDOMstrings:function(){
@@ -129,17 +129,30 @@ var GlobalController=(function(uiCTRL,budgetCTRL){
         }
     });
     };
+    var updateBudget = function(){
+       //1.Calculating the budget
+        
+    // 2. Return Budget
+        
+     //3.Display budget on UI
+        
+    }
+    
     var DOM= uiCTRL.getDOMstrings();
     var addingItem= function(){
         var input,newItem;
         //1.Get the filed input data
          input = uiCTRL.getinput();
-        console.log(input);
+        if(input.description !==" " && !isNaN(input.value) && input.value >0){
+         console.log(input);
          //2. Budget Controller
-       newItem = budgetCTRL.addItem(input.type,input.description,input.value);
-       uiCTRL.addListItems(newItem,input.type);
+        newItem = budgetCTRL.addItem(input.type,input.description,input.value);
+        uiCTRL.addListItems(newItem,input.type);
           // clear fields
-       uiCTRL.clearDOM();
+        uiCTRL.clearDOM();
+        
+        updateBudget();
+        }
     };
 
     
